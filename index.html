@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Card Component</title>
+  <style>
+    /*clip path used on pseudo-element to create irregular badge shape*/
+    .clip:before{
+      clip-path: polygon(100% 100%, 100% 0, 0 0);
+    }
+
+
+    .box-shadow{
+      box-shadow: 0px 10px 55px 6px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1);
+
+    }
+  </style>
+  <!-- using tailwind CDN to improve speed and reduce externally written css(not to be used this way in production) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+  <!-- container to handle responsiveness -->
+  <div class="container mx-auto flex items-center justify-center min-h-screen">
+    <div class='rounded pl-4 pr-24 md:px-20 py-8 md:pt-12 md:pb-6 flex md:justify-center items-center md:flex-col hover:shadow-2xl relative box-shadow'>
+      <!-- badges positioned relative to the container -->
+      <span class="w-12 h-12 absolute -top-6 -right-6 text-md font-semibold text-white rounded-full bg-[#1aa39b] flex items-center justify-center">
+        -40%
+    </span>
+    <span class="sr-only">40% off</span>
+    <span class="py-2 px-4 absolute -top-4 -left-6 text-sm font-semibold text-white rounded bg-blue-800 flex items-center justify-center clip before:absolute before:h-4 before:w-6 before:-bottom-[42%] before:left-0 before:bg-blue-900 ">
+      Recommended
+  </span>
+    
+      <div class="h-20 md:h-40">
+      <img src="./images/iPhone-8-black.png" alt="" class="w-full h-full object-center object-cover card-image">
+    </div>
+    <div class="flex flex-col justify center items-center"> 
+      <span class="text-center md:py-4 w-full font-semibold">iphone 8</span>
+      <span class="sr-only">iphone 8</span>
+      <ul class="md:flex space-x-1 pb-4 hidden">
+        <li class="h-10 w-10 rounded-full  border bg-amber-100 cursor-pointer hover:shadow-xl item-color" id='gold'></li>
+        <li class="h-10 w-10 rounded-full border bg-red-900 cursor-pointer hover:shadow-xl item-color" id="red"></li>
+        <li class="h-10 w-10 rounded-full  border bg-white cursor-pointer hover:shadow-xl item-color" id="white"></li>
+        <li class="h-10 w-10 rounded-full  border bg-slate-700 cursor-pointer hover:shadow-xl item-color" id="black"></li>
+      </ul>
+      <span class="sr-only">price</span>
+      <h3 class="text-3xl font-bold text-[#1aa39b]">223<sub>&euro;</sub> </h3>
+    </div>
+    </div>
+  </div>
+  <script src="./app.js"></script>
+</body>
+</html>
